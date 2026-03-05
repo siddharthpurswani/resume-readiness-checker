@@ -322,7 +322,7 @@ else:
                     response = requests.post(
                         st.secrets["N8N_WEBHOOK_URL"],
                         json=payload,
-                        timeout=60
+                        timeout=300
                     )
                     result = response.json()
                     st.session_state["n8n_result"] = result
@@ -354,4 +354,5 @@ else:
     if status == "SENT":
         st.success(f"✅ Alert Email Status: {status}")
     else:
+
         st.warning(f"⚠️ Status: {status}")
